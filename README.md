@@ -79,7 +79,7 @@ commit和commit -a的区别, commit -a相当于：
 >
 > fatal: Not a git repository (or any of the parent directories): .git   // 说明没有进入相应的分支目录
 
-#### git pull
+#### git pull 拉取远程库更新文件，合并本地库
 
 `git pull`命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并。
 
