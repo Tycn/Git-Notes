@@ -184,3 +184,45 @@ commit和commit -a的区别, commit -a相当于：
 > $ git config branch.master.merge refs/heads/master 
 
 之后再重新git pull下。最后git push你的代码吧。
+
+**第三种错误：**
+
+如果是git push ，没有加全 git push origin master 出现以下错误
+
+> $ git push
+>
+> fatal: You are not currently on a branch.
+> To push the history leading to the current (detached HEAD)
+> state now, use
+>
+>
+> git push origin HEAD:<name-of-remote-branch>
+>
+
+继续 git status 查看状态，出现以下提示情况
+
+> $ git status
+>
+> rebase in progress; onto dbad060
+> You are currently rebasing branch 'master' on 'dbad060'.
+>   (all conflicts fixed: run "git rebase --continue")
+
+接下来回滚最近更新 git rebase --continue （**注意：本地库需要备份一下，下一步会跟本地库合并。以免本地更新丢失**）
+
+>  $ git rebase --continue
+> Applying: add web03
+> No changes - did you forget to use 'git add'?
+> If there is nothing left to stage, chances are that something else
+> already introduced the same changes; you might want to skip this patch.
+>
+> When you have resolved this problem, run "git rebase --continue".
+> If you prefer to skip this patch, run "git rebase --skip" instead.
+> To check out the original branch and stop rebasing, run "git rebase --abort".
+
+再输入 git rebase --abort   **本地合并回滚数据**
+
+> $ git status
+> On branch master
+> Your branch is up-to-date with 'origin/master'.
+
+最后把备份的文件拷贝更新回来就可以了，开始push吧，**注：需要写全 git push origin master**
