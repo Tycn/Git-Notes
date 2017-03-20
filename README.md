@@ -79,7 +79,25 @@ commit和commit -a的区别, commit -a相当于：
 >
 > fatal: Not a git repository (or any of the parent directories): .git   // 说明没有进入相应的分支目录
 
+#### git pull
 
+`git pull`命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并。
+
+> $ git pull origin master
+
+`git pull` 后可能出现的错误提示：
+
+> $ git pull origin master
+>
+> Pull is not possible because you have unmerged files.
+> Please, fix them up in the work tree, and then use 'git add/rm <file>'
+> as appropriate to mark resolution, or use 'git commit -a'
+
+解决办法：需要执行以下两步，再继续`git pull origin master`
+
+> $ git add -u
+>
+> $ git commit
 
 #### github版本库及本地库中删除某个文件
 
@@ -101,7 +119,9 @@ commit和commit -a的区别, commit -a相当于：
 >
 > $ git push
 
+#### 从现有仓库克隆
 
+> $ git clone git://github.com/xxx.git
 
 #### git中遇到的一些错误解决办法
 
@@ -121,13 +141,9 @@ commit和commit -a的区别, commit -a相当于：
 
    > $ rm -f ./.git/index.lock
 
-#### 从现有仓库克隆
-
-> $ git clone git://github.com/Tycn/web.git
 
 
-
-第二种错误提示： error: failed to push some refs to 'https://github.com/xxx.git'
+**第二种错误提示：** error: failed to push some refs to 'https://github.com/xxx.git'
 
 当要push代码到git时，出现提示：
 
