@@ -8,7 +8,7 @@
 
 登陆GitHub，打开“Settings”->“SSH and GPG Keys”，“New SSH Key”操作
 
-Title任意，在Key文本框里复制id_rsa.pub文件内容
+Title任意，在Key文本框里复制id_rsa.pub文件里的内容。注：`id_rsa.pub`文件的内容默认是在本地电脑 `/c/users/用户名/.ssh/id_rsa.pub` 中，用记事本打开。
 
 点“Add SSH Key”，你就应该看到已经添加的Key
 
